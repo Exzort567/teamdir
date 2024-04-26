@@ -1,10 +1,10 @@
 import axios from "axios";
-import useLoginModal from "@/hooks/useLoginModal"
+import useLoginModal from "@/hooks/useLoginModal";
 import { useCallback, useState } from "react";
 import Input from "../Input";
 import Modal from "../Modal";
 import userRegisterModal from "@/hooks/userRegisterModal";
-import { toast } from 'react-hot-toast'
+import { toast } from 'react-hot-toast';
 import { signIn } from "next-auth/react";
 
 
@@ -49,15 +49,15 @@ const RegisterModal = () => {
             registerModal.onClose();
         } catch (error) {
             console.log(error)
-            toast.error('Something went wrong')
+            toast.error('Something went wrong');
         } finally {
             setIsLoading(false);
         }
-    }, [registerModal, email, password, username, name])
+    }, [registerModal, email, password, username, name]);
 
     const testContent = (
         <div>
-            <h1>HELLO WORLD!!</h1>
+            <h1>HELLO WORLD!!</h1> 
         </div>
     )
 

@@ -31,7 +31,7 @@ model User {
   hasNotification Boolean?
 
   post Post[]
-  comments Comments[]
+  comments Comment[]
   notifications Notifications[]
 
 }
@@ -46,10 +46,10 @@ model Post {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)  
 
-  comments Comments[]
+  comments Comment[]
 }
 
-model Comments {
+model Comment {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   body String
   createdAt DateTime @default(now())
