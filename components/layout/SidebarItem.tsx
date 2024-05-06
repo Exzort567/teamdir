@@ -4,6 +4,8 @@ import { useCallback } from "react";
 import { IconType } from "react-icons";
 import LoginModal from "../modals/LoginModal";
 import useLoginModal from "@/hooks/useLoginModal";
+import { BsDot } from 'react-icons/bs'
+
 
 interface SidebarItemProps {
     label: string;
@@ -11,6 +13,7 @@ interface SidebarItemProps {
     icon: IconType;
     onClick?: () => void;
     auth?: boolean;
+    alert?: boolean;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -18,7 +21,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     href,
     icon: Icon,
     onClick,
-    auth
+    auth,
+    alert
 }) => {
   const loginModal = useLoginModal();
   const { data: currentUser} = useCurrentUser();
@@ -40,12 +44,14 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     <div onClick={handleClick} className="flex flex-row items-center">
         <div className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden">
             <Icon size={20} color="white"/>
+            {alert ? <BsDot className="text-red-600 absolute -top-3 -left-1" size={70}/> : null}
         </div>
         <div className="relative hidden lg:flex items-center gap-4 p-4 rounded-full hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer">
             <Icon size={20} color="white"/>
             <p className="hidden lg:block text-l">
                 {label}
             </p>
+            {alert ? <BsDot className="text-red-600 absolute -top-3 -left-1" size={70}/> : null}
         </div>
     </div>
   )
