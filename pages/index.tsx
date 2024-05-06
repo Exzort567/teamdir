@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Header label="Home"/>
-      <Form placeholder="Need 1 Gold to Platinum QTPIE21"/>
+      <Form placeholder="You want to play? Let's play."/>
       <PostFeed/>
     </>
   )
